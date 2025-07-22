@@ -152,7 +152,10 @@ class _RobotControlScreenState extends State<RobotControlScreen>
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                   side: BorderSide(
-                    color: isConnected ? Colors.green.withOpacity(0.5) : Colors.red.withOpacity(0.5),
+                    color:
+                        isConnected
+                            ? Colors.green.withOpacity(0.5)
+                            : Colors.red.withOpacity(0.5),
                     width: 1,
                   ),
                 ),
@@ -163,20 +166,22 @@ class _RobotControlScreenState extends State<RobotControlScreen>
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(
-                            isConnected ? Icons.check_circle : Icons.error_outline,
-                            color: isConnected ? Colors.green : Colors.red,
-                            size: 24,
-                          ),
-                          const SizedBox(width: 8),
-                          Text(
-                            isConnected ? 'Connected to Robot' : 'Disconnected',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: isConnected ? Colors.green : Colors.red,
-                            ),
-                          ),
+                          // Icon(
+                          //   isConnected
+                          //       ? Icons.check_circle
+                          //       : Icons.error_outline,
+                          //   color: isConnected ? Colors.green : Colors.red,
+                          //   size: 24,
+                          // ),
+                          // const SizedBox(width: 8),
+                          // Text(
+                          //   isConnected ? 'Connected to Robot' : 'Disconnected',
+                          //   style: TextStyle(
+                          //     fontSize: 16,
+                          //     fontWeight: FontWeight.bold,
+                          //     color: isConnected ? Colors.green : Colors.red,
+                          //   ),
+                          // ),
                         ],
                       ),
                       const SizedBox(height: 8),
@@ -191,9 +196,9 @@ class _RobotControlScreenState extends State<RobotControlScreen>
                   ),
                 ),
               ),
-              
+
               const SizedBox(height: 20),
-              
+
               // Movement Controls
               _buildControlSection(
                 title: 'Movement Controls',
@@ -213,7 +218,9 @@ class _RobotControlScreenState extends State<RobotControlScreen>
                               HapticFeedback.mediumImpact();
                               final success = await RobotService.maju();
                               _showSnackBar(
-                                success ? 'Moving Forward' : 'Failed to move forward',
+                                success
+                                    ? 'Moving Forward'
+                                    : 'Failed to move forward',
                               );
                             },
                             color: Colors.blue,
@@ -257,7 +264,9 @@ class _RobotControlScreenState extends State<RobotControlScreen>
                             HapticFeedback.mediumImpact();
                             final success = await RobotService.putarKanan();
                             _showSnackBar(
-                              success ? 'Turning Right' : 'Failed to turn right',
+                              success
+                                  ? 'Turning Right'
+                                  : 'Failed to turn right',
                             );
                           },
                           color: Colors.blue,
@@ -276,7 +285,9 @@ class _RobotControlScreenState extends State<RobotControlScreen>
                               HapticFeedback.mediumImpact();
                               final success = await RobotService.mundur();
                               _showSnackBar(
-                                success ? 'Moving Backward' : 'Failed to move backward',
+                                success
+                                    ? 'Moving Backward'
+                                    : 'Failed to move backward',
                               );
                             },
                             color: Colors.blue,
@@ -288,9 +299,9 @@ class _RobotControlScreenState extends State<RobotControlScreen>
                   ],
                 ),
               ),
-              
+
               const SizedBox(height: 16),
-              
+
               // Gripper Controls
               _buildControlSection(
                 title: 'Gripper Controls',
@@ -308,7 +319,9 @@ class _RobotControlScreenState extends State<RobotControlScreen>
                             HapticFeedback.mediumImpact();
                             final success = await RobotService.gripperUp();
                             _showSnackBar(
-                              success ? 'Gripper Up' : 'Failed to move gripper up',
+                              success
+                                  ? 'Gripper Up'
+                                  : 'Failed to move gripper up',
                             );
                           },
                           color: Colors.orange,
@@ -320,7 +333,9 @@ class _RobotControlScreenState extends State<RobotControlScreen>
                             HapticFeedback.mediumImpact();
                             final success = await RobotService.gripperDown();
                             _showSnackBar(
-                              success ? 'Gripper Down' : 'Failed to move gripper down',
+                              success
+                                  ? 'Gripper Down'
+                                  : 'Failed to move gripper down',
                             );
                           },
                           color: Colors.orange,
@@ -338,7 +353,9 @@ class _RobotControlScreenState extends State<RobotControlScreen>
                             HapticFeedback.mediumImpact();
                             final success = await RobotService.gripperOpen();
                             _showSnackBar(
-                              success ? 'Gripper Open' : 'Failed to open gripper',
+                              success
+                                  ? 'Gripper Open'
+                                  : 'Failed to open gripper',
                             );
                           },
                           color: Colors.orange,
@@ -350,7 +367,9 @@ class _RobotControlScreenState extends State<RobotControlScreen>
                             HapticFeedback.mediumImpact();
                             final success = await RobotService.gripperClose();
                             _showSnackBar(
-                              success ? 'Gripper Close' : 'Failed to close gripper',
+                              success
+                                  ? 'Gripper Close'
+                                  : 'Failed to close gripper',
                             );
                           },
                           color: Colors.orange,
@@ -360,9 +379,12 @@ class _RobotControlScreenState extends State<RobotControlScreen>
                           label: 'Half Down',
                           onPressed: () async {
                             HapticFeedback.mediumImpact();
-                            final success = await RobotService.gripperHalfDown();
+                            final success =
+                                await RobotService.gripperHalfDown();
                             _showSnackBar(
-                              success ? 'Gripper Half Down' : 'Failed to half down gripper',
+                              success
+                                  ? 'Gripper Half Down'
+                                  : 'Failed to half down gripper',
                             );
                           },
                           color: Colors.orange,
@@ -372,9 +394,9 @@ class _RobotControlScreenState extends State<RobotControlScreen>
                   ],
                 ),
               ),
-              
+
               const SizedBox(height: 16),
-              
+
               // Walking Mode Controls
               _buildControlSection(
                 title: 'Walking Mode',
@@ -392,7 +414,9 @@ class _RobotControlScreenState extends State<RobotControlScreen>
                             HapticFeedback.mediumImpact();
                             final success = await RobotService.setNormalStep();
                             _showSnackBar(
-                              success ? 'Normal Step Mode' : 'Failed to set normal step',
+                              success
+                                  ? 'Normal Step Mode'
+                                  : 'Failed to set normal step',
                             );
                           },
                           color: Colors.green,
@@ -404,7 +428,9 @@ class _RobotControlScreenState extends State<RobotControlScreen>
                             HapticFeedback.mediumImpact();
                             final success = await RobotService.setHighStep();
                             _showSnackBar(
-                              success ? 'High Step Mode' : 'Failed to set high step',
+                              success
+                                  ? 'High Step Mode'
+                                  : 'Failed to set high step',
                             );
                           },
                           color: Colors.green,
@@ -420,9 +446,12 @@ class _RobotControlScreenState extends State<RobotControlScreen>
                           label: 'Stair On',
                           onPressed: () async {
                             HapticFeedback.mediumImpact();
-                            final success = await RobotService.enableStairStep();
+                            final success =
+                                await RobotService.enableStairStep();
                             _showSnackBar(
-                              success ? 'Stair Mode On' : 'Failed to enable stair mode',
+                              success
+                                  ? 'Stair Mode On'
+                                  : 'Failed to enable stair mode',
                             );
                           },
                           color: Colors.green,
@@ -432,9 +461,12 @@ class _RobotControlScreenState extends State<RobotControlScreen>
                           label: 'Stair Off',
                           onPressed: () async {
                             HapticFeedback.mediumImpact();
-                            final success = await RobotService.disableStairStep();
+                            final success =
+                                await RobotService.disableStairStep();
                             _showSnackBar(
-                              success ? 'Stair Mode Off' : 'Failed to disable stair mode',
+                              success
+                                  ? 'Stair Mode Off'
+                                  : 'Failed to disable stair mode',
                             );
                           },
                           color: Colors.green,
@@ -450,9 +482,12 @@ class _RobotControlScreenState extends State<RobotControlScreen>
                           label: 'Slide On',
                           onPressed: () async {
                             HapticFeedback.mediumImpact();
-                            final success = await RobotService.enableSlideStep();
+                            final success =
+                                await RobotService.enableSlideStep();
                             _showSnackBar(
-                              success ? 'Slide Mode On' : 'Failed to enable slide mode',
+                              success
+                                  ? 'Slide Mode On'
+                                  : 'Failed to enable slide mode',
                             );
                           },
                           color: Colors.green,
@@ -462,9 +497,12 @@ class _RobotControlScreenState extends State<RobotControlScreen>
                           label: 'Slide Off',
                           onPressed: () async {
                             HapticFeedback.mediumImpact();
-                            final success = await RobotService.disableSlideStep();
+                            final success =
+                                await RobotService.disableSlideStep();
                             _showSnackBar(
-                              success ? 'Slide Mode Off' : 'Failed to disable slide mode',
+                              success
+                                  ? 'Slide Mode Off'
+                                  : 'Failed to disable slide mode',
                             );
                           },
                           color: Colors.green,
@@ -493,7 +531,7 @@ class _RobotControlScreenState extends State<RobotControlScreen>
     //   ),
     // );
   }
-  
+
   // Helper method to build control sections with consistent styling
   Widget _buildControlSection({
     required String title,
@@ -534,7 +572,7 @@ class _RobotControlScreenState extends State<RobotControlScreen>
       ),
     );
   }
-  
+
   // Helper method to build direction control buttons
   Widget _buildDirectionButton({
     required IconData icon,
@@ -562,7 +600,7 @@ class _RobotControlScreenState extends State<RobotControlScreen>
       ),
     );
   }
-  
+
   // Helper method to build control buttons
   Widget _buildControlButton({
     required IconData icon,
